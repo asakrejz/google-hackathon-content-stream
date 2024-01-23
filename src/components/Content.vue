@@ -1,21 +1,22 @@
 <template>
   <div class="content">
-    <a href="https://www.bild.de">
-      <img src="https://via.placeholder.com/300x250" alt="Bild" />
-      <div>
-        <span>Kicker</span>
-        <span>Headline</span>
-      </div>
-    </a>
+    <Article></Article>
+    <Article></Article>
+    <Article></Article>
+    <Article></Article>
+    <Article></Article>
   </div>
 </template>
 
+<script setup lang="ts">
+import Article from "./Article.vue";
+</script>
+
 <style lang="scss">
 .content {
-  margin-top: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 8px;
 }
 </style>
