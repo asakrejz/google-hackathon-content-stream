@@ -1,5 +1,5 @@
 <template>
-  <a class="article" href="https://www.bild.de">
+  <a class="article" :href="`https://www.bild.de${url}`">
     <img
       v-if="isPremium"
       class="article__premium"
