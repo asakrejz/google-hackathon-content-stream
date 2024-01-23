@@ -22,7 +22,7 @@ const articles = testData.slice(1, 10).map((article: any) => ({
 .content {
   margin: 8px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: 8px;
 }
 </style>

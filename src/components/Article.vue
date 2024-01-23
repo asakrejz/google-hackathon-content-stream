@@ -1,8 +1,8 @@
 <template>
   <a class="article" href="https://www.bild.de">
     <img class="article__image" :src="imageUrl" alt="Bild" />
-    <div>
-      <span>{{ headline }}</span>
+    <div class="article__text">
+      <span class="article__text--headline">{{ headline }}</span>
     </div>
   </a>
 </template>
@@ -51,8 +51,25 @@ export default {
 
 <style lang="scss">
 .article {
+  position: relative;
+
   &__image {
     width: 100%;
+  }
+  &__text {
+    background: linear-gradient(
+      rgba(33 37 41 / 0%) 0%,
+      rgba(33 37 41 / 70%) 100%
+    );
+    position: absolute;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0 0 0 / 60%);
+    bottom: 0;
+    width: 100%;
+    padding: 16px;
   }
 }
 </style>
