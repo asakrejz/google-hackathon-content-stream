@@ -5,6 +5,7 @@
       :url="article.url"
       :headline="article.headline"
       :category="article.category"
+      :is-premium="article.isPremium"
     ></Article>
   </div>
 </template>
@@ -17,6 +18,7 @@ const articles = testData.slice(1, 10).map((article: any) => ({
   url: article.url,
   headline: article.headline,
   category: article.upday_category,
+  isPremium: article.is_premium,
 }));
 </script>
 

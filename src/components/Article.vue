@@ -1,5 +1,11 @@
 <template>
   <a class="article" href="https://www.bild.de">
+    <img
+      v-if="isPremium"
+      class="article__premium"
+      src="@/assets/bild-plus.svg"
+      alt="Bild"
+    />
     <img class="article__image" :src="imageUrl" alt="Bild" />
     <div class="article__category">{{ category }}</div>
     <div class="article__text">
@@ -11,6 +17,10 @@
 <script lang="ts">
 export default {
   props: {
+    isPremium: {
+      type: Boolean,
+      default: false,
+    },
     url: {
       type: String,
       default:
@@ -60,6 +70,16 @@ export default {
 
   &__image {
     width: 100%;
+  }
+
+  &__premium {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    z-index: 1;
+
+    width: 60px;
+    height: 32px;
   }
 
   &__category {
