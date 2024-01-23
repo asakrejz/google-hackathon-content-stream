@@ -2,24 +2,30 @@
   <v-app-bar class="header">
     <img class="header__icon" :src="BildIcon" alt="BILD Logo" />
     <div class="header__slider">
-      <v-btn variant="tonal"> Politik </v-btn>
-      <v-btn variant="tonal"> Sport </v-btn>
-      <v-btn variant="tonal"> Unterhaltung </v-btn>
-      <v-btn variant="tonal"> Regional </v-btn>
-      <v-btn variant="tonal"> Politik </v-btn>
-      <v-btn variant="tonal"> Sport </v-btn>
-      <v-btn variant="tonal"> Unterhaltung </v-btn>
-      <v-btn variant="tonal"> Regional </v-btn>
-      <v-btn variant="tonal"> Politik </v-btn>
-      <v-btn variant="tonal"> Sport </v-btn>
-      <v-btn variant="tonal"> Unterhaltung </v-btn>
-      <v-btn variant="tonal"> Regional </v-btn>
+      <v-btn variant="tonal" v-for="element in getTagByContent()">
+        {{ element }}
+      </v-btn>
     </div>
   </v-app-bar>
 </template>
 
 <script setup lang="ts">
 import BildIcon from "@/assets/bild.svg";
+
+const getTagByContent = () => [
+  "Politik",
+  "Sport",
+  "Unterhaltung",
+  "Regional",
+  "Politik",
+  "Sport",
+  "Unterhaltung",
+  "Regional",
+  "Politik",
+  "Sport",
+  "Unterhaltung",
+  "Regional",
+];
 </script>
 
 <style lang="scss">
