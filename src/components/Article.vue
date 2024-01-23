@@ -1,6 +1,7 @@
 <template>
   <a class="article" href="https://www.bild.de">
-    <img class="article__image" :src="imageUrl" alt="Bild" />
+    <img class="article__image" :src="imageUrl" alt="Bild">
+    <div class="article__category">{{  category }}</div>
     <div>
       <span>{{ headline }}</span>
     </div>
@@ -18,6 +19,10 @@ export default {
     headline: {
       type: String,
       default: "Headline",
+    },
+    category: {
+      type: String,
+      default: null,
     },
   },
   data: () => ({
@@ -51,8 +56,20 @@ export default {
 
 <style lang="scss">
 .article {
+  position: relative;
   &__image {
     width: 100%;
+  }
+
+  &__category {
+    padding: 5px;
+    border: 2px;
+    border-radius: 5px;
+    background-color: gray;
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 10px;
   }
 }
 </style>
