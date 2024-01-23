@@ -1,11 +1,11 @@
 <template>
   <v-app-bar class="header">
-    <img class="header__icon" :src="BildIcon" alt="BILD Logo" />
+    <img class="header__icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Logo_BILD.svg/1200px-Logo_BILD.svg.png" alt="BILD Logo" />
     <div class="header__slider">
       <v-btn
         @click="handleClick(element)"
         variant="tonal"
-        v-for="element in getTagByContent()"
+        v-for="element in data"
       >
         {{ element }}
       </v-btn>
@@ -13,35 +13,41 @@
   </v-app-bar>
 </template>
 
-<script setup lang="ts">
-import BildIcon from "@/assets/bild.svg";
-const emit = defineEmits(["updateTags"]);
+<script lang="ts">
+import BildIcon from "@/assets/bild.svg?inline";
 
-const getTagByContent = () => [
-  "Politik",
-  "Sport",
-  "Unterhaltung",
-  "Regional",
-  "Politik",
-  "Sport",
-  "Unterhaltung",
-  "Regional",
-  "Politik",
-  "Sport",
-  "Unterhaltung",
-  "Regional",
-];
-
-const handleClick = (element: string) => {
-  console.log("click");
-  console.log(element);
-};
+export default {
+  components: {
+    BildIcon,
+  },
+  props: {
+    categories: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  data: () => ({
+    data: [],
+  }),
+  mounted() {
+    this.data = this.categories
+  },
+  updated() {
+    this.data = this.categories
+  },
+  methods: {
+    handleClick(category: string) {
+      this.$emit("update-content", category);
+    },
+  },
+}
 </script>
 
 <style lang="scss">
 .header {
   &__icon {
     margin: 8px;
+    width: 40px;
   }
 
   &__slider {

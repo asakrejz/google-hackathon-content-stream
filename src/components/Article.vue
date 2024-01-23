@@ -36,11 +36,15 @@ export default {
     },
   },
   data: () => ({
-    imageUrl: "https://a.bildstatic.de/img/bild-logo.4ba8a06e.jpg",
+    imageUrl: "",
   }),
   async mounted() {
-    console.log(this.url);
-    this.imageUrl = (await this.fetchImageUrl(this.url)) || this.imageUrl;
+    const image = await this.fetchImageUrl(this.url);
+    this.imageUrl = image || "https://a.bildstatic.de/img/bild-logo.4ba8a06e.jpg";
+  },
+  async updated() {
+      const image = await this.fetchImageUrl(this.url);
+      this.imageUrl = image || "https://a.bildstatic.de/img/bild-logo.4ba8a06e.jpg";
   },
   methods: {
     fetchImageUrl(url: string) {
