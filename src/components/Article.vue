@@ -1,5 +1,5 @@
 <template>
-  <a class="article" href="https://www.bild.de">
+  <a class="article" :href="`https://www.bild.de${url}`">
     <img class="article__image" :src="imageUrl" alt="Bild" />
     <div class="article__category">{{ category }}</div>
     <div class="article__text">
