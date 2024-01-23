@@ -4,6 +4,7 @@
       v-for="article in articles"
       :url="article.url"
       :headline="article.headline"
+      :category="article.category"
     ></Article>
   </div>
 </template>
@@ -15,6 +16,7 @@ import { testData } from "./data/test-data.js";
 const articles = testData.slice(1, 10).map((article: any) => ({
   url: article.url,
   headline: article.headline,
+  category: article.upday_category,
 }));
 </script>
 
