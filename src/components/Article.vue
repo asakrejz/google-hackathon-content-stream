@@ -2,31 +2,36 @@
   <a class="article" href="https://www.bild.de">
     <img class="article__image" :src="imageUrl" alt="Bild" />
     <div>
-      <span>Kicker</span>
-      <span>Headline</span>
+      <span>{{ headline }}</span>
     </div>
   </a>
 </template>
 
 <script lang="ts">
-import { tSThisType } from "@babel/types";
-
 export default {
   props: {
     url: {
       type: String,
-      default: "https://www.bild.de",
+      default:
+        "https://www.bild.de/politik/inland/politik-inland/benzin-pasta-schnitzel-prost-teuerjahr-2024-86599812.bildMobile.html",
+    },
+    headline: {
+      type: String,
+      default: "Headline",
     },
   },
   data: () => ({
     imageUrl: "https://a.bildstatic.de/img/bild-logo.4ba8a06e.jpg",
   }),
   async mounted() {
+    console.log(this.url);
     this.imageUrl = (await this.fetchImageUrl(this.url)) || this.imageUrl;
   },
   methods: {
     fetchImageUrl(url: string) {
-      return fetch(url)
+      const test = `https://www.bild.de${url}`;
+      console.log(test);
+      return fetch(test)
         .then((response) => response.text())
         .then((html) => {
           // Parse the HTML to find the OG image URL
